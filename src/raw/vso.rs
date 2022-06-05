@@ -119,6 +119,224 @@ extern "C" {
         __ic: c_long,
         __n: c_ulong
     );
+
+    // Scaler-Vector Division
+    /// Divides a single-precision scalar value by a single-precision vector.
+    /// <https://developer.apple.com/documentation/accelerate/1450412-vdsp_svdiv>
+    pub fn vDSP_svdiv(
+        __a: *const c_float,
+        __b: *const c_float,
+        __ib: c_long,
+        __c: *mut c_float,
+        __ic: c_long,
+        __n: c_ulong
+    );
+
+    /// Divides a double-precision scalar value by a double-precision vector.
+    /// <https://developer.apple.com/documentation/accelerate/1450028-vdsp_svdivd>
+    pub fn vDSP_svdivD(
+        __a: *const c_double,
+        __b: *const c_double,
+        __ib: c_long,
+        __c: *mut c_double,
+        __ic: c_long,
+        __n: c_ulong
+    );
+
+    // Vector-Vector-Scalar Add-Multiply
+    /// Multiplies the sum of two single-precision vectors by a single-precision scalar value.
+    /// <https://developer.apple.com/documentation/accelerate/1449773-vdsp_vasm>
+    pub fn vDSP_vasm(
+        __a: *const c_float,
+        __ia: c_long,
+        __b: *const c_float,
+        __ib: c_long,
+        __c: *const c_float,
+        __d: *mut c_float,
+        __id: c_long,
+        __n: c_ulong
+    );
+
+    /// Multiplies the sum of two double-precision vectors by a double-precision scalar value.
+    /// <https://developer.apple.com/documentation/accelerate/1450146-vdsp_vasmd>
+    pub fn vDSP_vasmD(
+        __a: *const c_double,
+        __ia: c_long,
+        __b: *const c_double,
+        __ib: c_long,
+        __c: *const c_double,
+        __d: *mut c_double,
+        __id: c_long,
+        __n: c_ulong
+    );
+
+    // Vector-Vector-Scalar Subtract-Multiply
+    /// Multiplies the difference of two single-precision vectors by a single-precision scalar value.
+    /// <https://developer.apple.com/documentation/accelerate/1450734-vdsp_vsbsm>
+    pub fn vDSP_vsbsm(
+        __a: *const c_float,
+        __ia: c_long,
+        __b: *const c_float,
+        __ib: c_long,
+        __c: *const c_float,
+        __d: *mut c_float,
+        __id: c_long,
+        __n: c_ulong
+    );
+
+    /// Multiplies the difference of two double-precision vectors by a double-precision scalar value.
+    /// <https://developer.apple.com/documentation/accelerate/1450372-vdsp_vsbsmd>
+    pub fn vDSP_vsbsmD(
+        __a: *const c_double,
+        __ia: c_long,
+        __b: *const c_double,
+        __ib: c_long,
+        __c: *const c_double,
+        __d: *mut c_double,
+        __id: c_long,
+        __n: c_ulong
+    );
+
+    // Vector-Vector-Scalar Multiply-Subtract
+    /// Subtracts a single-precision vector from the product of a single-precision scalar value and
+    /// a single-precision vector.
+    /// <https://developer.apple.com/documentation/accelerate/1450822-vdsp_vsmsb/>
+    pub fn vDSP_vsmsb(
+        __a: *const c_float,
+        __ia: c_long,
+        __b: *const c_float,
+        __c: *const c_float,
+        __ic: c_long,
+        __d: *mut c_float,
+        __id: c_long,
+        __n: c_ulong
+    );
+
+    /// Subtracts a double-precision vector from the product of a double-precision scalar value and
+    /// a double-precision vector.
+    /// <https://developer.apple.com/documentation/accelerate/1450238-vdsp_vsmsbd>
+    pub fn vDSP_vsmsbD(
+        __a: *const c_double,
+        __ia: c_long,
+        __b: *const c_double,
+        __c: *const c_double,
+        __ic: c_long,
+        __d: *mut c_double,
+        __id: c_long,
+        __n: c_ulong
+    );
+
+    // Vector-Vector-Scalar Multiply-Add
+    /// Adds a single-precision scalar value to the product of two single-precision vectors.
+    /// <https://developer.apple.com/documentation/accelerate/1450590-vdsp_vmsa>
+    pub fn vDSP_vmsa(
+        __a: *const c_float,
+        __ia: c_long,
+        __b: *const c_float,
+        __ib: c_long,
+        __c: *const c_float,
+        __d: *mut c_float,
+        __id: c_long,
+        __n: c_ulong
+    );
+
+    /// Adds a double-precision scalar value to the product of two double-precision vectors.
+    /// <https://developer.apple.com/documentation/accelerate/1450698-vdsp_vmsad>
+    pub fn vDSP_vmsaD(
+        __a: *const c_double,
+        __ia: c_long,
+        __b: *const c_double,
+        __ib: c_long,
+        __c: *const c_double,
+        __d: *mut c_double,
+        __id: c_long,
+        __n: c_ulong
+    );
+
+    /// Adds a single-precision complex vector to the product of a single-precision
+    /// complex scalar value and a single-precision complex vector.
+    /// <https://developer.apple.com/documentation/accelerate/1449902-vdsp_zvsma>
+    pub fn vDSP_zvsma(
+        __a: *const DSPImmutableSplitComplex,
+        __ia: c_long,
+        __b: *const DSPImmutableSplitComplex,
+        __c: *const DSPImmutableSplitComplex,
+        __ic: c_long,
+        __d: *mut DSPSplitComplex,
+        __id: c_long,
+        __n: c_ulong
+    );
+
+    /// Adds a double-precision complex vector to the product of a double-precision
+    /// complex scalar value and a double-precision complex vector.
+    /// <https://developer.apple.com/documentation/accelerate/1450570-vdsp_zvsmad>
+    pub fn vDSP_zvsmaD(
+        __a: *const DSPDoubleImmutableSplitComplex,
+        __ia: c_long,
+        __b: *const DSPDoubleImmutableSplitComplex,
+        __c: *const DSPDoubleImmutableSplitComplex,
+        __ic: c_long,
+        __d: *mut DSPDoubleSplitComplex,
+        __id: c_long,
+        __n: c_ulong
+    );
+
+    // Vector-Scalar-Scalar Multiply-Add
+    /// Adds a single-precision scalar value to the product of a single-precision vector
+    /// and a single-precision scalar value.
+    /// <https://developer.apple.com/documentation/accelerate/1450380-vdsp_vsmsa>
+    pub fn vDSP_vsmsa(
+        __a: *const c_float,
+        __ia: c_long,
+        __b: *const c_float,
+        __c: *const c_float,
+        __d: *mut c_float,
+        __id: c_long,
+        __n: c_ulong
+    );
+
+    /// Adds a double-precision scalar value to the product of a double-precision vector
+    /// and a double-precision scalar value.
+    /// <https://developer.apple.com/documentation/accelerate/1450432-vdsp_vsmsad>
+    pub fn vDSP_vsmsaD(
+        __a: *const c_double,
+        __ia: c_long,
+        __b: *const c_double,
+        __c: *const c_double,
+        __d: *mut c_double,
+        __id: c_long,
+        __n: c_ulong
+    );
+
+    /// Adds the product of a single-precision vector and a single-precision scalar value
+    /// to a second product of a single-precision vector and a single-precision scalar value.
+    /// <https://developer.apple.com/documentation/accelerate/1450324-vdsp_vsmsma>
+    pub fn vDSP_vsmsma(
+        __a: *const c_float,
+        __ia: c_long,
+        __b: *const c_float,
+        __c: *const c_float,
+        __ic: c_long,
+        __d: *const c_float,
+        __e: *mut c_float,
+        __ie: c_long,
+        __n: c_ulong
+    );
+
+    /// Adds the product of a double-precision vector and a double-precision scalar value
+    /// to a second product of a double-precision vector and a double-precision scalar value.
+    /// <https://developer.apple.com/documentation/accelerate/1449850-vdsp_vsmsmad>
+    pub fn vDSP_vsmsmaD(
+        __a: *const c_double,
+        __ia: c_long,
+        __b: *const c_double,
+        __c: *const c_double,
+        __ic: c_long,
+        __d: *const c_double,
+        __e: *mut c_double,
+        __ie: c_long,
+        __n: c_ulong
+    );
 }
 
 #[cfg(test)]
@@ -363,5 +581,207 @@ mod tests {
             )
         }
         assert_eq!(c, Vec::<i32>::from([2, 3, 4, 5, 6]));
+    }
+
+    #[test]
+    fn test_vdsp_svdiv() {
+        let a: f32 = 2.0;
+        let b: Vec<f32> = vec![1., 2., 4., 5.];
+        let mut c: Vec<f32> = vec![0.0; b.len()];
+
+        unsafe {
+            raw::vDSP_svdiv(
+                &a,
+                b.as_ptr(),
+                1,
+                c.as_mut_ptr(),
+                1,
+                b.len() as c_ulong,
+            )
+        }
+
+        assert_eq!(c, Vec::<f32>::from([2., 1., 0.5, 0.4]));
+    }
+
+    #[test]
+    fn test_vdsp_svdiv_d() {
+        let a: f64 = 2.0;
+        let b: Vec<f64> = vec![1., 2., 4., 5.];
+        let mut c: Vec<f64> = vec![0.0; b.len()];
+
+        unsafe {
+            raw::vDSP_svdivD(
+                &a,
+                b.as_ptr(),
+                1,
+                c.as_mut_ptr(),
+                1,
+                b.len() as c_ulong,
+            )
+        }
+
+        assert_eq!(c, Vec::<f64>::from([2., 1., 0.5, 0.4]));
+    }
+
+    #[test]
+    fn test_vdsp_vasm() {
+        let a: Vec<f32> = vec![10., 20., 30., 40., 50.];
+        let b: Vec<f32> = vec![1., 2., 3., 4., 5.];
+
+        let c: f32 = 2.;
+
+        let mut d: Vec<f32> = vec![0.0; a.len()];
+
+        unsafe {
+            raw::vDSP_vasm(
+                a.as_ptr(), 1,
+                b.as_ptr(), 1,
+                &c,
+                d.as_mut_ptr(), 1,
+                a.len() as c_ulong
+            );
+        }
+        assert_eq!(d, Vec::<f32>::from([22.0, 44.0, 66.0, 88.0, 110.0]));
+    }
+
+    #[test]
+    fn test_vdsp_vasm_d() {
+        let a: Vec<f64> = vec![10., 20., 30., 40., 50.];
+        let b: Vec<f64> = vec![1., 2., 3., 4., 5.];
+
+        let c: f64 = 2.;
+
+        let mut d: Vec<f64> = vec![0.0; a.len()];
+
+        unsafe {
+            raw::vDSP_vasmD(
+                a.as_ptr(), 1,
+                b.as_ptr(), 1,
+                &c,
+                d.as_mut_ptr(), 1,
+                a.len() as c_ulong
+            );
+        }
+        assert_eq!(d, Vec::<f64>::from([22.0, 44.0, 66.0, 88.0, 110.0]));
+    }
+
+    #[test]
+    fn test_vdsp_vsbsm() {
+        let a: Vec<f32> = vec![10., 20., 30., 40., 50.];
+        let b: Vec<f32> = vec![1., 2., 3., 4., 5.];
+        let c: f32 = 2.;
+        let mut d: Vec<f32> = vec![0.0; a.len()];
+
+        unsafe {
+            raw::vDSP_vsbsm(
+                a.as_ptr(), 1,
+                b.as_ptr(), 1,
+                &c,
+                d.as_mut_ptr(), 1,
+                a.len() as c_ulong
+            )
+        }
+
+        assert_eq!(d, Vec::<f32>::from([18.0, 36.0, 54.0, 72.0, 90.0]));
+    }
+
+    #[test]
+    fn test_vdsp_vsbsm_d() {
+        let a: Vec<f64> = vec![10., 20., 30., 40., 50.];
+        let b: Vec<f64> = vec![1., 2., 3., 4., 5.];
+        let c: f64 = 2.;
+        let mut d: Vec<f64> = vec![0.0; a.len()];
+
+        unsafe {
+            raw::vDSP_vsbsmD(
+                a.as_ptr(), 1,
+                b.as_ptr(), 1,
+                &c,
+                d.as_mut_ptr(), 1,
+                a.len() as c_ulong
+            )
+        }
+
+        assert_eq!(d, Vec::<f64>::from([18.0, 36.0, 54.0, 72.0, 90.0]));
+    }
+
+    #[test]
+    fn test_vdsp_vsmsb() {
+        let a: Vec<f32> = vec![10., 20., 30., 40., 50.];
+        let b: f32 = 2.0;
+        let c: Vec<f32> = vec![1., 2., 3., 4., 5.];
+        let mut d: Vec<f32> = vec![0.0; a.len()];
+
+        unsafe {
+            raw::vDSP_vsmsb(
+                a.as_ptr(), 1,
+                &b,
+                c.as_ptr(), 1,
+                d.as_mut_ptr(), 1,
+                a.len() as c_ulong
+            )
+        }
+
+        assert_eq!(d, Vec::<f32>::from([19.0, 38.0, 57.0, 76.0, 95.0]));
+    }
+
+    #[test]
+    fn test_vdsp_vsmsb_d() {
+        let a: Vec<f64> = vec![10., 20., 30., 40., 50.];
+        let b: f64 = 2.0;
+        let c: Vec<f64> = vec![1., 2., 3., 4., 5.];
+        let mut d: Vec<f64> = vec![0.0; a.len()];
+
+        unsafe {
+            raw::vDSP_vsmsbD(
+                a.as_ptr(), 1,
+                &b,
+                c.as_ptr(), 1,
+                d.as_mut_ptr(), 1,
+                a.len() as c_ulong
+            )
+        }
+
+        assert_eq!(d, Vec::<f64>::from([19.0, 38.0, 57.0, 76.0, 95.0]));
+    }
+
+    #[test]
+    fn test_vdsp_vmsa() {
+        let a: Vec<f32> = vec![10., 20., 30., 40., 50.];
+        let b: Vec<f32> = vec![1., 2., 3., 4., 5.];
+        let c: f32 = 2.;
+        let mut d: Vec<f32> = vec![0.; a.len()];
+
+        unsafe {
+            raw::vDSP_vmsa(
+                a.as_ptr(), 1,
+                b.as_ptr(), 1,
+                &c,
+                d.as_mut_ptr(), 1,
+                a.len() as c_ulong
+            )
+        }
+
+        assert_eq!(d, Vec::<f32>::from([12.0, 42.0, 92.0, 162.0, 252.0]));
+    }
+
+    #[test]
+    fn test_vdsp_vmsa_d() {
+        let a: Vec<f64> = vec![10., 20., 30., 40., 50.];
+        let b: Vec<f64> = vec![1., 2., 3., 4., 5.];
+        let c: f64 = 2.;
+        let mut d: Vec<f64> = vec![0.; a.len()];
+
+        unsafe {
+            raw::vDSP_vmsaD(
+                a.as_ptr(), 1,
+                b.as_ptr(), 1,
+                &c,
+                d.as_mut_ptr(), 1,
+                a.len() as c_ulong
+            )
+        }
+
+        assert_eq!(d, Vec::<f64>::from([12.0, 42.0, 92.0, 162.0, 252.0]));
     }
 }
