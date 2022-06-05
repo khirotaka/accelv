@@ -123,9 +123,8 @@ extern "C" {
 
 #[cfg(test)]
 mod tests {
-    use crate::raw;
     use libc::{c_ulong};
-    use crate::raw::{DSPDoubleImmutableSplitComplex, DSPDoubleSplitComplex, DSPImmutableSplitComplex, DSPSplitComplex};
+    use crate::raw;
 
     #[test]
     fn test_v_dsp_vsadd() {
@@ -225,21 +224,21 @@ mod tests {
     fn test_vdsp_zvzsml() {
         let a_r: Vec<f32> = vec![1.0, 2.0, 3.0, 4.0, 5.0];
         let a_i: Vec<f32> = vec![1.0, 2.0, 3.0, 4.0, 5.0];
-        let a = DSPImmutableSplitComplex {
+        let a = raw::DSPImmutableSplitComplex {
             realp: a_r.as_ptr(),
             imagp: a_i.as_ptr()
         };
 
         let b_r: f32 = 5.0;
         let b_i: f32 = 5.0;
-        let b = DSPImmutableSplitComplex {
+        let b = raw::DSPImmutableSplitComplex {
             realp: &b_r,
             imagp: &b_i
         };
 
         let mut c_r: Vec<f32> = vec![0.0; a_r.len()];
         let mut c_i: Vec<f32> = vec![0.0; a_r.len()];
-        let mut c = DSPSplitComplex {
+        let mut c = raw::DSPSplitComplex {
             realp: c_r.as_mut_ptr(),
             imagp: c_i.as_mut_ptr()
         };
@@ -265,24 +264,25 @@ mod tests {
         );
     }
 
+    #[test]
     fn test_vdsp_zvzsml_d() {
         let a_r: Vec<f64> = vec![1.0, 2.0, 3.0, 4.0, 5.0];
         let a_i: Vec<f64> = vec![1.0, 2.0, 3.0, 4.0, 5.0];
-        let a = DSPDoubleImmutableSplitComplex {
+        let a = raw::DSPDoubleImmutableSplitComplex {
             realp: a_r.as_ptr(),
             imagp: a_i.as_ptr()
         };
 
         let b_r: f64 = 5.0;
         let b_i: f64 = 5.0;
-        let b = DSPDoubleImmutableSplitComplex {
+        let b = raw::DSPDoubleImmutableSplitComplex {
             realp: &b_r,
             imagp: &b_i
         };
 
         let mut c_r: Vec<f64> = vec![0.0; a_r.len()];
         let mut c_i: Vec<f64> = vec![0.0; a_r.len()];
-        let mut c = DSPDoubleSplitComplex {
+        let mut c = raw::DSPDoubleSplitComplex {
             realp: c_r.as_mut_ptr(),
             imagp: c_i.as_mut_ptr()
         };
@@ -308,6 +308,7 @@ mod tests {
         );
     }
 
+    #[test]
     fn test_vdsp_vsdiv() {
         let a: Vec<f32> = vec![4., 6., 8., 10., 12.];
         let b: f32 = 2.;
@@ -326,6 +327,7 @@ mod tests {
         assert_eq!(c, Vec::<f32>::from([2., 3., 4., 5., 6.]));
     }
 
+    #[test]
     fn test_vdsp_vsdiv_d() {
         let a: Vec<f64> = vec![4., 6., 8., 10., 12.];
         let b: f64 = 2.;
@@ -344,6 +346,7 @@ mod tests {
         assert_eq!(c, Vec::<f64>::from([2., 3., 4., 5., 6.]));
     }
 
+    #[test]
     fn test_vdsp_vsdiv_i() {
         let a: Vec<i32> = vec![4, 6, 8, 10, 12];
         let b: i32 = 2;
