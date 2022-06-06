@@ -343,6 +343,7 @@ extern "C" {
 mod tests {
     use libc::{c_ulong};
     use crate::raw;
+    use is_close::all_close;
 
     #[test]
     fn test_v_dsp_vsadd() {
@@ -359,7 +360,7 @@ mod tests {
                 a.len() as c_ulong
             )
         }
-        assert_eq!(c, Vec::<f32>::from([6.0, 7.0, 8.0, 9.0, 10.0]));
+        assert!(all_close!(c, Vec::<f32>::from([6.0, 7.0, 8.0, 9.0, 10.0])));
     }
 
     #[test]
@@ -377,7 +378,7 @@ mod tests {
                 a.len() as c_ulong
             )
         }
-        assert_eq!(c, Vec::<f64>::from([6.0, 7.0, 8.0, 9.0, 10.0]));
+        assert!(all_close!(c, Vec::<f64>::from([6.0, 7.0, 8.0, 9.0, 10.0])));
     }
 
     #[test]
@@ -415,7 +416,7 @@ mod tests {
             )
         }
 
-        assert_eq!(c, Vec::<f32>::from([3., 6., 9., 12., 15.]));
+        assert!(all_close!(c, Vec::<f32>::from([3., 6., 9., 12., 15.])));
     }
 
     #[test]
@@ -435,7 +436,7 @@ mod tests {
             )
         }
 
-        assert_eq!(c, Vec::<f64>::from([3., 6., 9., 12., 15.]));
+        assert!(all_close!(c, Vec::<f64>::from([3., 6., 9., 12., 15.])));
     }
 
     #[test]
@@ -472,14 +473,14 @@ mod tests {
             );
         }
 
-        assert_eq!(
+        assert!(all_close!(
             c_r,
             Vec::<f32>::from([0., 0., 0., 0., 0.])
-        );
-        assert_eq!(
+        ));
+        assert!(all_close!(
             c_i,
             Vec::<f32>::from([10., 20., 30., 40., 50.])
-        );
+        ));
     }
 
     #[test]
@@ -516,14 +517,14 @@ mod tests {
             );
         }
 
-        assert_eq!(
+        assert!(all_close!(
             c_r,
             Vec::<f64>::from([0., 0., 0., 0., 0.])
-        );
-        assert_eq!(
+        ));
+        assert!(all_close!(
             c_i,
             Vec::<f64>::from([10., 20., 30., 40., 50.])
-        );
+        ));
     }
 
     #[test]
@@ -542,7 +543,7 @@ mod tests {
                 a.len() as c_ulong
             )
         }
-        assert_eq!(c, Vec::<f32>::from([2., 3., 4., 5., 6.]));
+        assert!(all_close!(c, Vec::<f32>::from([2., 3., 4., 5., 6.])));
     }
 
     #[test]
@@ -561,7 +562,7 @@ mod tests {
                 a.len() as c_ulong
             )
         }
-        assert_eq!(c, Vec::<f64>::from([2., 3., 4., 5., 6.]));
+        assert!(all_close!(c, Vec::<f64>::from([2., 3., 4., 5., 6.])));
     }
 
     #[test]
@@ -600,7 +601,7 @@ mod tests {
             )
         }
 
-        assert_eq!(c, Vec::<f32>::from([2., 1., 0.5, 0.4]));
+        assert!(all_close!(c, Vec::<f32>::from([2., 1., 0.5, 0.4])));
     }
 
     #[test]
@@ -620,7 +621,7 @@ mod tests {
             )
         }
 
-        assert_eq!(c, Vec::<f64>::from([2., 1., 0.5, 0.4]));
+        assert!(all_close!(c, Vec::<f64>::from([2., 1., 0.5, 0.4])));
     }
 
     #[test]
@@ -641,7 +642,7 @@ mod tests {
                 a.len() as c_ulong
             );
         }
-        assert_eq!(d, Vec::<f32>::from([22.0, 44.0, 66.0, 88.0, 110.0]));
+        assert!(all_close!(d, Vec::<f32>::from([22.0, 44.0, 66.0, 88.0, 110.0])));
     }
 
     #[test]
@@ -662,7 +663,7 @@ mod tests {
                 a.len() as c_ulong
             );
         }
-        assert_eq!(d, Vec::<f64>::from([22.0, 44.0, 66.0, 88.0, 110.0]));
+        assert!(all_close!(d, Vec::<f64>::from([22.0, 44.0, 66.0, 88.0, 110.0])));
     }
 
     #[test]
@@ -682,7 +683,7 @@ mod tests {
             )
         }
 
-        assert_eq!(d, Vec::<f32>::from([18.0, 36.0, 54.0, 72.0, 90.0]));
+        assert!(all_close!(d, Vec::<f32>::from([18.0, 36.0, 54.0, 72.0, 90.0])));
     }
 
     #[test]
@@ -702,7 +703,7 @@ mod tests {
             )
         }
 
-        assert_eq!(d, Vec::<f64>::from([18.0, 36.0, 54.0, 72.0, 90.0]));
+        assert!(all_close!(d, Vec::<f64>::from([18.0, 36.0, 54.0, 72.0, 90.0])));
     }
 
     #[test]
@@ -722,7 +723,7 @@ mod tests {
             )
         }
 
-        assert_eq!(d, Vec::<f32>::from([19.0, 38.0, 57.0, 76.0, 95.0]));
+        assert!(all_close!(d, Vec::<f32>::from([19.0, 38.0, 57.0, 76.0, 95.0])));
     }
 
     #[test]
@@ -742,7 +743,7 @@ mod tests {
             )
         }
 
-        assert_eq!(d, Vec::<f64>::from([19.0, 38.0, 57.0, 76.0, 95.0]));
+        assert!(all_close!(d, Vec::<f64>::from([19.0, 38.0, 57.0, 76.0, 95.0])));
     }
 
     #[test]
@@ -762,7 +763,7 @@ mod tests {
             )
         }
 
-        assert_eq!(d, Vec::<f32>::from([12.0, 42.0, 92.0, 162.0, 252.0]));
+        assert!(all_close!(d, Vec::<f32>::from([12.0, 42.0, 92.0, 162.0, 252.0])));
     }
 
     #[test]
@@ -782,6 +783,6 @@ mod tests {
             )
         }
 
-        assert_eq!(d, Vec::<f64>::from([12.0, 42.0, 92.0, 162.0, 252.0]));
+        assert!(all_close!(d, Vec::<f64>::from([12.0, 42.0, 92.0, 162.0, 252.0])));
     }
 }

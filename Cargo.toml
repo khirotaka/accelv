@@ -7,3 +7,6 @@ edition = "2021"
 
 [dependencies]
 libc = "0.2.126"
+
+[dev-dependencies]
+is_close = "0.1.3"
