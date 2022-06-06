@@ -1,6 +1,5 @@
 use libc::{c_double, c_float};
 
-
 #[repr(C)]
 pub struct DSPSplitComplex {
     pub realp: *mut c_float,
