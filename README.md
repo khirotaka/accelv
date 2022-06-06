@@ -1,2 +1,2 @@
-# vops
-Vectorized arithmetic crates with vDSP as backend.
+# Accelvops
+Vectorized arithmetic crates with Accelerate framework as backend.
